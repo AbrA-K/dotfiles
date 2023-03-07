@@ -7,4 +7,4 @@ alacritty \
 lvim/config.lua \
 install-dependencies \
 add-to-git \
-
+LICENCE \
