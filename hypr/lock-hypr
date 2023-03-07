@@ -1,0 +1,21 @@
+swaylock \
+	--screenshots \
+	--clock \
+	--indicator \
+	--indicator-radius 100 \
+	--indicator-thickness 7 \
+	--effect-blur 7x5 \
+	--ring-color 2d353b \
+	--ring-ver-color 83c092 \
+	--key-hl-color 7fbbb3 \
+	--line-color 00000000 \
+	--line-ver-color 00000000 \
+	--inside-color a7c08088 \
+	--inside-ver-color 4d4c4388 \
+	--separator-color 00000000 \
+  --bs-hl-color e67e80 \
+  --text-ver-color d3c6aa \
+  --effect-greyscale 1.0 \
+  --text-color 343f33 \
+	--fade-in 0.2
+  

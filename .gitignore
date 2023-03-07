@@ -1,0 +1,10 @@
+# files to track
+!.gitignore
+!hypr/**
+!alacritty/*
+!kickoff/*
+!neofetch/*
+!waybar/*
+
+*
+

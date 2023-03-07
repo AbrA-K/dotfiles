@@ -1,0 +1,10 @@
+cd $HOME/.config/
+git add -f hypr \
+kickoff \
+neofetch \
+waybar \
+alacritty \
+lvim/config.lua \
+install-dependencies \
+add-to-git \
+

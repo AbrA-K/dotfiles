@@ -1,0 +1,22 @@
+echo -------- updating --------
+sudo pacman -Syyu
+
+echo ----- installing git -----
+sudo pacman -S git -y
+
+
+echo ----- installing yay -----
+
+mkdir repos
+cd repos
+pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+yay --gendb
+
+echo ----- installing hypr-----
+yay -S hyprland
+
+
+
+echo - getting config dependencies -
+yay -S kickoff alacritty swaync waybar-hyprland-git swaylock-effects
+
