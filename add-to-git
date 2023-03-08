@@ -6,5 +6,7 @@ waybar \
 alacritty \
 lvim/config.lua \
 install-dependencies \
+bspwm \
+sxhkd \
 add-to-git \
 LICENCE \
