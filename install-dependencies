@@ -2,7 +2,7 @@ echo -------- updating --------
 sudo pacman -Syyu
 
 echo ----- installing git -----
-sudo pacman -S git -y
+sudo pacman -S wl-clipboard grim slurp -y
 
 
 echo ----- installing yay -----
