@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+grim -g "$(slurp)" - | wl-copy \
+  && wl-paste > ~/Pictures/Screenshot.png \
+  && if [ $(notify-send -i ~/Pictures/Screenshot.png "looking good :>" -A open) ]
+then
+  feh ~/Pictures/Screenshot.png
+fi
