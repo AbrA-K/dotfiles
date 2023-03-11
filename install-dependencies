@@ -2,7 +2,7 @@ echo -------- updating --------
 sudo pacman -Syyu
 
 echo ----- installing git -----
-sudo pacman -S wl-clipboard grim slurp -y
+sudo pacman -S wl-clipboard grim slurp ranger  -y
 
 
 echo ----- installing yay -----
@@ -18,5 +18,5 @@ yay -S hyprland
 
 
 echo - getting config dependencies -
-yay -S kickoff alacritty swaync waybar-hyprland-git swaylock-effects
+yay -S kickoff alacritty swaync waybar-hyprland-git swaylock-effects nerd-fonts-jetbrains-mono
 
