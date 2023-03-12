@@ -23,6 +23,7 @@ window#waybar {
 #workspaces,
 #clock,
 #pulseaudio,
+#backlight,
 #memory,
 #cpu,
 #battery,
@@ -38,6 +39,7 @@ window#waybar {
 #clock,
 #window,
 #pulseaudio,
+#backlight,
 #memory,
 #cpu,
 #battery,
@@ -76,6 +78,7 @@ window#waybar {
 }
 #battery {
 	color: #d3c6aa;
+  border: 2px solid #a7c080;
 }
 #disk {
 	color: #b58900;
@@ -87,6 +90,7 @@ window#waybar {
 
 #clock,
 #pulseaudio,
+#backlight
 #memory,
 #cpu,
 #battery,
@@ -106,7 +110,8 @@ window#waybar {
   border-color: #a7c080;
 }
 
-#pulseaudio, #memory, #cpu {
+#pulseaudio,#backlight, #memory, #cpu {
+
   /* background-color: #3a515d; */
   /* border-color: #7fbbb3; */
   /* background-color: #55544a; */
