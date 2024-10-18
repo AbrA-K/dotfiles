@@ -1,0 +1,88 @@
+# Author : Ingrid Rebecca Abraham <git@ingrids.email>
+
+"attribute" = "grass_green_0"
+"keyword" = { fg = "rose_red_1", modifiers = ["bold"] }
+"keyword.directive" = "grass_green_1"
+"namespace" = "grass_green_0"
+"punctuation" = "muted_red_1"
+"punctuation.delimiter" = "muted_red_1"
+"operator" = { fg = "rose_red_1", modifiers = ["bold"] }
+"special" = "muted_red_0"
+"variable.other.member" = "teal"
+"variable" = "water_blue"
+"variable.parameter" = "teal"
+"type" = { fg = "water_blue", modifiers = ["bold"] }
+"type.builtin" = "grass_green_0"
+"constructor" = { fg = "grass_green_0", modifiers = ["bold"] }
+"function" = { fg = "teal", modifiers = ["bold"] }
+"function.macro" = { fg = "sand_yellow", modifiers = ["bold"] }
+"function.builtin" = "teal"
+"comment" = "water_blue"
+"variable.builtin" = "sand_yellow"
+"constant" = "sand_yellow"
+"constant.builtin" = "sand_yellow"
+"string" = "rose_red_1"
+"constant.numeric" = "rose_red_1"
+"constant.character.escape" = { fg = "rose_red_1", modifiers = ["bold"] }
+"label" = "muted_red_0"
+
+"module" = "grass_green_0"
+
+# TODO
+"markup.heading" = "blue"
+"markup.list" = "red"
+"markup.bold" = { fg = "yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "magenta", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "red"
+"markup.quote" = "cyan"
+"markup.raw" = "green"
+
+"diff.plus" = "grass_green_0"
+"diff.delta" = "sand_yellow"
+"diff.minus" = "rose_red_1"
+
+"ui.background" = { bg = "#FFFCFD" }
+"ui.linenr" = { fg = "#bbbbbb" }
+"ui.linenr.selected" = { fg = "rose_red_1", modifiers = ["bold"] }
+"ui.cursorline" = { bg = "#F3EAE9" }
+"ui.statusline" = { fg = "#250E07", bg = "#F3EAE9" }
+"ui.statusline.inactive" = { fg = "#7b91b3", bg = "#F3EAE9" }
+"ui.popup" = { fg = "#7B91b3", bg = "#F3E8E9" }
+"ui.window" = { bg = "#D8B8B3" }
+"ui.help" = { bg = "#D8B8B3", fg = "#250E07" }
+
+"ui.text" = { fg = "#7B91B3" }
+"ui.text.focus" = { fg = "#250E07", modifiers= ["bold"] }
+"ui.virtual.whitespace" = "water_blue"
+"ui.virtual.ruler" = { bg = "#F3EAE9" }
+
+"ui.selection" = { bg = "#F3EAE9" }
+"ui.cursor.primary" = { bg = "rose_red_1", fg = "#FFFCFD", modifiers = ["bold"] }
+"ui.cursor.match" = { bg = "#F3EAE9", fg = "rose_red_1", modifiers = ["bold"] }
+"ui.menu" = { fg = "#7B91B3", bg = "#F3EAE9" }
+"ui.menu.selected" = { fg = "rose_red_1", bg = "#F3EAE9" }
+
+"warning" = "sand_yellow"
+"error" = "rose_red_1"
+"info" = "grass_green_0"
+"hint" = "water_blue"
+
+"diagnostic.warning" = { underline = { color = "sand_yellow", style = "curl" } }
+"diagnostic.error" = { underline = { color = "rose_red_1", style = "curl" } }
+"diagnostic.info" = { underline = { color = "grass_green_0", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "water_blue", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+[palette]
+sand_yellow = "#D4A520"
+water_blue = "#A6B6CE"
+teal = "#4badb4"
+grass_green_0 = "#839A53"
+grass_green_1 = "#6F873E"
+rose_red_0 = "#D74E50"
+rose_red_1 = "#D4A520"
+muted_red_0 = "#D68482"
+muted_red_1 = "#C97270"

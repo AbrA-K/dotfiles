@@ -1,0 +1,28 @@
+theme="autumn"
+
+[editor]
+idle-timeout = 0
+bufferline = "always"
+completion-trigger-len = 1
+color-modes = true
+true-color = true
+
+[editor.cursor-shape]
+insert= "bar"
+
+[editor.statusline]
+mode.normal = "󰫄 "
+mode.insert = "󰋙 "
+mode.select = "󰫆 "
+separator = ""
+
+[editor.lsp]
+display-messages = true
+
+[editor.indent-guides]
+render = true
+character = "" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]

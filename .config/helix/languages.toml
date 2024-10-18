@@ -1,0 +1,17 @@
+[[language]]
+name = "c-sharp"
+file-types  = ["cs"]
+language-servers = ["cs-ls"]
+
+[language-server.cs-ls]
+command = "csharp-ls"
+
+
+[[language]]
+name = "nu"
+file-types  = ["nu"]
+language-servers = ["nulsp"]
+
+[language-server.nulsp]
+command = "/home/abra/repos/nushell/target/release/nu"
+args = ["--lsp"]
