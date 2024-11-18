@@ -69,6 +69,7 @@
  '((lisp . t)))
 (setq org-babel-lisp-eval-fn #'sly-eval)
 
+
 ;; org-roam
 (use-package org-roam)
 (setq org-roam-directory (file-truename "~/SimsalA-org"))

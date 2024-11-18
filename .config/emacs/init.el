@@ -17,7 +17,7 @@
  '(compilation-scroll-output t)
  '(compilation-search-path '(nil "src"))
  '(custom-safe-themes
-   '("48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710" "87b82caf3ade09282779733fb6de999d683caf4a67a1abbee8b8c8018a8d9a6b" "e14884c30d875c64f6a9cdd68fe87ef94385550cab4890182197b95d53a7cf40" "2b20b4633721cc23869499012a69894293d49e147feeb833663fdc968f240873" default))
+   '("00d7122017db83578ef6fba39c131efdcb59910f0fac0defbe726da8072a0729" "71b688e7ef7c844512fa7c4de7e99e623de99a2a8b3ac3df4d02f2cd2c3215e7" "48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710" "87b82caf3ade09282779733fb6de999d683caf4a67a1abbee8b8c8018a8d9a6b" "e14884c30d875c64f6a9cdd68fe87ef94385550cab4890182197b95d53a7cf40" "2b20b4633721cc23869499012a69894293d49e147feeb833663fdc968f240873" default))
  '(electric-indent-mode nil)
  '(indent-tabs-mode nil)
  '(line-move-visual t)
@@ -25,7 +25,7 @@
  '(next-error-highlight-no-select t)
  '(next-line-add-newlines nil)
  '(package-selected-packages
-   '(surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust org-roam haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
+   '(v-term libvterm vterm toggle-term magit f macsql-sqlite emacsql-sqlite org-roam surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
  '(package-vc-selected-packages
    '((eglot-booster :vc-backend Git :url "https://github.com/jdtsmith/eglot-booster")))
  '(require-final-newline t)
@@ -212,3 +212,19 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(variable-pitch-mode ((t (:family "Arimo Nerd Font")))))
+
+(use-package magit)
+
+(use-package vterm)
+(use-package toggle-term
+  :bind (("M-o f" . toggle-term-find)
+         ("M-o t" . toggle-term-term)
+         ("M-o v" . toggle-term-vterm)
+         ("M-o a" . toggle-term-eat)
+         ("M-o s" . toggle-term-shell)
+         ("M-o e" . toggle-term-eshell)
+         ("M-o i" . toggle-term-ielm)
+         ("M-o o" . toggle-term-toggle))
+  :config
+    (setq toggle-term-size 40)
+    (setq toggle-term-switch-upon-toggle t))

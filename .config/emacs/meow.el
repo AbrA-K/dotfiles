@@ -60,6 +60,7 @@
    '("e" . eglot)
    '("o" . org-roam-command-map)
    '("k" . eldoc-box-help-at-point)
+   '("t" . toggle-term-vterm)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
    '("2" . meow-digit-argument)
