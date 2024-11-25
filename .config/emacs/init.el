@@ -5,7 +5,6 @@
 (load-file "~/.config/emacs/ocaml.el")
 (add-to-list 'load-path "~/.config/emacs/emacs-progmode")
 
-;; Doom Flatwhite Theme
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -109,7 +108,10 @@
 
 (add-to-list
  'treesit-language-source-alist
-   '((ocaml "https://github.com/tree-sitter/tree-sitter-ocaml")))
+   '(ocaml "https://github.com/tree-sitter/tree-sitter-ocaml" "master" "grammars/ocaml/src"))
+(add-to-list
+ 'treesit-language-source-alist
+   '(ocaml-interface "https://github.com/tree-sitter/tree-sitter-ocaml" "master" "grammars/interface/src"))
 
 (setq major-mode-remap-alist
       '((rust-mode . rust-ts-mode)))
