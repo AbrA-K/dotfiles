@@ -889,3 +889,6 @@ $env.config = {
         }
     ]
 }
+
+use '~/.config/broot/launcher/nushell/br' *
+use '~/.config/nushell/starship.nu'
