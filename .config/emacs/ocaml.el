@@ -192,3 +192,5 @@
   (add-hook 'caml-mode-hook 'ocp-indent-caml-mode-setup  t)
   (setq ocp-indent-path "/home/abra/.opam/default/bin/ocp-indent"))
 ;; ## end of OPAM user-setup addition for emacs / ocp-indent ## keep this line
+
+(autoload 'ocaml-ts-mode "ocaml-ts-mode" "Major mode for editing Ocaml code" t)

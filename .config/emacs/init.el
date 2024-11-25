@@ -3,6 +3,7 @@
 (load-file "~/.config/emacs/completion.el")
 (load-file "~/.config/emacs/meow.el")
 (load-file "~/.config/emacs/ocaml.el")
+(add-to-list 'load-path "~/.config/emacs/emacs-progmode")
 
 ;; Doom Flatwhite Theme
 (custom-set-variables
@@ -25,7 +26,7 @@
  '(next-error-highlight-no-select t)
  '(next-line-add-newlines nil)
  '(package-selected-packages
-   '(v-term libvterm vterm toggle-term magit f macsql-sqlite emacsql-sqlite org-roam surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
+   '(xhair vline hl-line+ v-term libvterm vterm toggle-term magit f macsql-sqlite emacsql-sqlite org-roam surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
  '(package-vc-selected-packages
    '((eglot-booster :vc-backend Git :url "https://github.com/jdtsmith/eglot-booster")))
  '(require-final-newline t)
@@ -106,8 +107,9 @@
  'treesit-language-source-alist
  '(commonlisp "https://github.com/tree-sitter-grammars/tree-sitter-commonlisp"))
 
-(setq treesit-language-source-alist
-   '((ocaml "https://github.com/tree-sitter/tree-sitter-ocaml" "master" "ocaml/src")))
+(add-to-list
+ 'treesit-language-source-alist
+   '((ocaml "https://github.com/tree-sitter/tree-sitter-ocaml")))
 
 (setq major-mode-remap-alist
       '((rust-mode . rust-ts-mode)))
