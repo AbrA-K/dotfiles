@@ -1,8 +1,21 @@
 (use-package meow)
 
-;; better window navigation
+;; better window/tab navigation
 (use-package ace-window)
-;; (when (fboundp 'windmove-default-keybindings))
+(defvar aw-dispatch-alist
+  '((?x aw-delete-window "Delete Window")
+              	(?m aw-swap-window "Swap Windows")
+              	(?M aw-move-window "Move Window")
+              	(?c aw-copy-window "Copy Window")
+              	(?j aw-switch-buffer-in-window "Select Buffer")
+              	(?n aw-flip-window)
+              	(?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+              	(?c aw-split-window-fair "Split Fair Window")
+              	(?b aw-split-window-vert "Split Vert Window")
+              	(?v aw-split-window-horz "Split Horz Window")
+              	(?o delete-other-windows "Delete Other Windows")
+              	(?? aw-show-dispatch-help))
+  "List of actions for `aw-dispatch-default'.")
 (global-set-key (kbd "C-<left>")  'windmove-left)
 (global-set-key (kbd "C-<right>") 'windmove-right)
 (global-set-key (kbd "C-<up>")    'windmove-up)
@@ -11,6 +24,15 @@
 (global-set-key (kbd "C-s-<right>") 'windmove-swap-states-right)
 (global-set-key (kbd "C-s-<up>")    'windmove-swap-states-up)
 (global-set-key (kbd "C-s-<down>")  'windmove-swap-states-down)
+(global-set-key (kbd "C-<next>")  'tab-next)
+(global-set-key (kbd "C-<prior>")  'tab-previous)
+
+;; project-command-map
+(define-prefix-command 'project-command-map)
+(define-key project-command-map (kbd "p") #'project-switch-project)
+(define-key project-command-map (kbd "f") #'project-find-file)
+(define-key project-command-map (kbd "r") #'project-find-regexp)
+(define-key project-command-map (kbd "c") #'project-compile)
 
 ;; add/remove parenthesies (how 2 spell?)
 (use-package surround)
@@ -55,7 +77,7 @@
           (?b . buffer)))
 
   (meow-leader-define-key
-   '("p" . projectile-command-map)
+   '("p" . project-command-map)
    '("w" . ace-window)
    '("e" . eglot)
    '("o" . org-roam-command-map)

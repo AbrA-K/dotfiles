@@ -25,7 +25,7 @@
  '(next-error-highlight-no-select t)
  '(next-line-add-newlines nil)
  '(package-selected-packages
-   '(xhair vline hl-line+ v-term libvterm vterm toggle-term magit f macsql-sqlite emacsql-sqlite org-roam surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
+   '(otpp xhair vline hl-line+ v-term libvterm vterm toggle-term magit f macsql-sqlite emacsql-sqlite org-roam surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
  '(package-vc-selected-packages
    '((eglot-booster :vc-backend Git :url "https://github.com/jdtsmith/eglot-booster")))
  '(require-final-newline t)
@@ -45,7 +45,7 @@
 
 ;; (load-theme 'doom-monokai-classic)
 (use-package ef-themes)
-(load-theme 'ef-summer)
+(load-theme 'adwaita)
 
 ;; smoothscroll
 (pixel-scroll-precision-mode)
@@ -147,11 +147,18 @@
 (solaire-global-mode +1)
 
 ;; Project managament
-(use-package projectile)
-(projectile-mode +1)
-;;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-;;(define-key projectile-mode-map (kbd "<C-p>") 'projectile-command-map)
-
+(require 'project)
+(use-package otpp
+  :after project
+  :init
+  ;; If you like to define some aliases for better user experience
+  (defalias 'one-tab-per-project-mode 'otpp-mode)
+  (defalias 'one-tab-per-project-override-mode 'otpp-override-mode)
+  ;; Enable `otpp-mode` globally
+  (otpp-mode 1)
+  ;; If you want to advice the commands in `otpp-override-commands`
+  ;; to be run in the current's tab (so, current project's) root directory
+  (otpp-override-mode 1))
 
 ;; user mappings
 ;; emacs
@@ -161,47 +168,6 @@
 (define-key eglot-mode-map (kbd "C-c a") 'eglot-code-actions)
 (define-key eglot-mode-map (kbd "C-c d") 'flymake-show-project-diagnostics)
 (define-key eglot-mode-map (kbd "<f6>") 'xref-find-definitions)
-
-
-;; Buffer bar
-(use-package centaur-tabs
-  :demand
-  :config
-  (centaur-tabs-mode t)
-  :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
-(setq centaur-tabs-style "bar")
-(setq centaur-tabs-set-icons t)
-(setq centaur-tabs-gray-out-icons 'buffer)
-
-(defun centaur-tabs-hide-tab (x)
-  "Do no to show buffer X in tabs."
-  (let ((name (format "%s" x)))
-    (or
-     ;; Current window is not dedicated window.
-     (window-dedicated-p (selected-window))
-
-     ;; Buffer name not match below blacklist.
-     (string-prefix-p "*epc" name)
-     (string-prefix-p "*helm" name)
-     (string-prefix-p "*Helm" name)
-     (string-prefix-p "*Compile-Log*" name)
-     (string-prefix-p "*lsp" name)
-     (string-prefix-p "*company" name)
-     (string-prefix-p "*Flycheck" name)
-     (string-prefix-p "*tramp" name)
-     (string-prefix-p " *Mini" name)
-     (string-prefix-p "*help" name)
-     (string-prefix-p "*straight" name)
-     (string-prefix-p " *temp" name)
-     (string-prefix-p "*Help" name)
-     (string-prefix-p "*mybuf" name)
-     (string-prefix-p "*Messages*" name)
-
-     ;; Is not magit buffer.
-     (and (string-prefix-p "magit" name)
-          (not (file-name-extension name))))))
 
 ;; Performance zone
 
