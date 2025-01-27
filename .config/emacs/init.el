@@ -116,11 +116,40 @@
    (tool-bar-mode -1)
    (scroll-bar-mode -1))
 
-(use-package simple-modeline
-  :hook (after-init . simple-modeline-mode))
+(unless (package-installed-p 'lambda-line)
+  (package-vc-install "https://github.com/Lambda-Emacs/lambda-line"))
+
+(use-package lambda-line
+  :custom
+  (lambda-line-icon-time t) ;; requires ClockFace font (see below)
+  (lambda-line-clockface-update-fontset "ClockFaceRect") ;; set clock icon
+  (lambda-line-position 'bottom) ;; Set position of status-line
+  (lambda-line-abbrev t) ;; abbreviate major modes
+  (lambda-line-hspace " ")  ;; add some cushion
+  (lambda-line-prefix t) ;; use a prefix symbol
+  (lambda-line-prefix-padding nil) ;; no extra space for prefix
+  (lambda-line-status-invert nil)  ;; no invert colors
+  (lambda-line-display-group-start "[")
+  (lambda-line-display-group-end "]")
+  (lambda-line-gui-ro-symbol  " 󰙗") ;; symbols
+  (lambda-line-gui-mod-symbol " 󰏩")
+  (lambda-line-gui-rw-symbol  " 󱙵")
+  (lambda-line-vc-symbol " ")
+  (lambda-line-space-top +.2)  ;; padding on top and bottom of line
+  (lambda-line-space-bottom -.2)
+  :config
+  ;; activate lambda-line
+  (lambda-line-mode)
+  ;; set divider line in footer
+  (when (eq lambda-line-position 'top)
+    (setq-default mode-line-format (list "%_"))
+    (setq mode-line-format (list "%_"))))
 
 ;; better font
 (set-frame-font "BlexMonoNerd Font 13" nil t)
+(set-face-attribute 'mode-line nil :weight 'bold)
+(setq flymake-mode-line-format '(" " flymake-mode-line-exception flymake-mode-line-counters))
+;; (set-face-attribute 'lambda-line-display-group-end nil :weight 'regular)
 
 ;; rainbow delimiters
 (use-package rainbow-delimiters)
