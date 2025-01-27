@@ -102,3 +102,4 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.dotnet/tools')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.npm-global/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.ghcup/bin')

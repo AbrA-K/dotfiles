@@ -15,3 +15,12 @@ language-servers = ["nulsp"]
 [language-server.nulsp]
 command = "/home/abra/repos/nushell/target/release/nu"
 args = ["--lsp"]
+
+
+[[language]]
+name = "gdscript"
+language-servers = ["gds-lsp"]
+
+[language-server.gds-lsp]
+command = "nc"
+args = ["127.0.0.1", "6005"]

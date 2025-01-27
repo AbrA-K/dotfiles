@@ -1,4 +1,5 @@
-theme="autumn"
+# theme="autumn-transparent"
+theme="adwaita-light"
 
 [editor]
 idle-timeout = 0

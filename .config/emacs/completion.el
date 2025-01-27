@@ -6,7 +6,7 @@
   :custom
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
-  (corfu-auto-delay 0.0)
+  (corfu-auto-delay 0.1)
   (corfu-auto-prefix 1)
   (corfu-echo-documentation t)
   (corfu-echo-mode t)
@@ -33,8 +33,9 @@
 
 (use-package eglot-booster
   :after eglot
-  :config    	(eglot-booster-mode))
+  :config (eglot-booster-mode))
 
+(use-package markdown-mode)
 
 (use-package yasnippet)
 (require 'yasnippet)
@@ -56,14 +57,6 @@
 
 (use-package nerd-icons-corfu)
 (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
-(setq nerd-icons-corfu-mapping
-      '((array :style "cod" :icon "symbol_array" :face font-lock-type-face)
-        (boolean :style "cod" :icon "symbol_boolean" :face font-lock-builtin-face)
-        ;; ...
-        (t :style "cod" :icon "code" :face font-lock-warning-face)))
-        ;; Remember to add an entry for `t', the library uses that as default.
-
-;; The Custom interface is also supported for tuning the variable above.
 
 ;; A few more useful configurations...
 (use-package emacs  :init
@@ -97,10 +90,9 @@
 (setq parinfer-rust-disable-troublesome-modes t)
 (setq parinfer-rust-check-before-enable 'defer)
 
-;; child doc frame
-(use-package eldoc-box)
-(eldoc-box-hover-at-point-mode)
-(setq eldoc-echo-area-use-multiline-p t)
+;; zig mode
+(use-package zig-mode)
+(use-package zig-ts-mode)
 
 ;; ocaml
 (use-package ocp-indent)
@@ -113,9 +105,35 @@
     (add-hook 'tuareg-mode-hook 'merlin-mode t)
     (add-hook 'caml-mode-hook 'merlin-mode t)
     ;; Use opam switch to lookup ocamlmerlin binary
-    (setq merlin-command 'opam)
-    ;; To easily change opam switches within a given Emacs session, you can
-    ;; install the minor mode https://github.com/ProofGeneral/opam-switch-mode
-    ;; and use one of its "OPSW" menus.
-    ))
+    (setq merlin-command 'opam)))
+;; To easily change opam switches within a given Emacs session, you can
+;; install the minor mode https://github.com/ProofGeneral/opam-switch-mode
+;; and use one of its "OPSW" menus.
+
 (use-package tuareg)
+
+;; --------------------------- DEBUGGING ---------------------------
+(use-package dap-mode)
+(dap-auto-configure-mode)
+
+;; rust
+(require 'dap-gdb-lldb)
+(dap-gdb-lldb-setup)
+(dap-register-debug-template "Rust::GDB Run Configuration"
+                             (list :type "gdb"
+                                   :request "launch"
+                                   :name "GDB::Run"
+                                   :gdbpath "rust-gdb"
+                                   :target nil
+                                   :cwd nil))
+
+;; ocaml
+(require 'dap-ocaml)
+(require 'dap-codelldb)
+;; (dap-register-debug-template "OCaml Debug Template"
+;;                              (list :type "ocaml.earlybird"
+;;                                    :request "launch"
+;;                                    :name "OCaml::Run"
+;;                                    :program nil
+;;                                    :target nil
+;;                                    :arguments "debug"))

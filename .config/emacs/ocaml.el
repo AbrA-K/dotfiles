@@ -9,25 +9,6 @@
 (use-package tuareg
  :ensure t)
 
-(custom-set-variables
- '(indent-tabs-mode nil)
- '(compilation-context-lines 2)
- '(compilation-error-screen-columns nil)
- '(compilation-scroll-output t)
- '(compilation-search-path (quote (nil "src")))
- '(electric-indent-mode nil)
- '(next-line-add-newlines nil)
- '(require-final-newline t)
- '(sentence-end-double-space nil)
- '(show-trailing-whitespace t)
- '(visible-bell t)
- '(show-paren-mode t)
- '(next-error-highlight t)
- '(next-error-highlight-no-select t)
- '(backup-directory-alist '(("." . "~/.local/share/emacs/backups")))
- '(ac-use-fuzzy nil)
- '(line-move-visual t))
-
 
 ;; ANSI color in compilation buffer
 (require 'ansi-color)
@@ -194,3 +175,4 @@
 ;; ## end of OPAM user-setup addition for emacs / ocp-indent ## keep this line
 
 (autoload 'ocaml-ts-mode "ocaml-ts-mode" "Major mode for editing Ocaml code" t)
+(use-package dune)

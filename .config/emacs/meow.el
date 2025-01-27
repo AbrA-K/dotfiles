@@ -1,5 +1,28 @@
 (use-package meow)
 
+;; scroll half a page
+(defun my/scroll-down-half-page ()
+  "scroll down half a page while keeping the cursor centered"
+  (interactive)
+  (let ((ln (line-number-at-pos (point)))
+    (lmax (line-number-at-pos (point-max))))
+    (cond ((= ln 1) (move-to-window-line nil))
+      ((= ln lmax) (recenter (window-end)))
+      (t (progn
+           (move-to-window-line -1)
+           (recenter))))))
+
+(defun my/scroll-up-half-page ()
+  "scroll up half a page while keeping the cursor centered"
+  (interactive)
+  (let ((ln (line-number-at-pos (point)))
+    (lmax (line-number-at-pos (point-max))))
+    (cond ((= ln 1) nil)
+      ((= ln lmax) (move-to-window-line nil))
+      (t (progn
+           (move-to-window-line 0)
+           (recenter))))))
+
 ;; better window/tab navigation
 (use-package ace-window)
 (defvar aw-dispatch-alist
@@ -28,11 +51,14 @@
 (global-set-key (kbd "C-<prior>")  'tab-previous)
 
 ;; project-command-map
-(define-prefix-command 'project-command-map)
-(define-key project-command-map (kbd "p") #'project-switch-project)
-(define-key project-command-map (kbd "f") #'project-find-file)
-(define-key project-command-map (kbd "r") #'project-find-regexp)
-(define-key project-command-map (kbd "c") #'project-compile)
+(use-package projectile
+  :ensure t)
+(projectile-mode)
+;; (define-prefix-command 'project-command-map)
+;; (define-key project-command-map (kbd "p") #'project-switch-project)
+;; (define-key project-command-map (kbd "f") #'project-find-file)
+;; (define-key project-command-map (kbd "r") #'project-find-regexp)
+;; (define-key project-command-map (kbd "c") #'project-compile)
 
 ;; add/remove parenthesies (how 2 spell?)
 (use-package surround)
@@ -56,7 +82,6 @@
 ;; actual meow config
 (setq aw-dispatch-always t)
 
-(require 'eldoc-box)
 (defun meow-setup ()
   (setq meow-cheatsheet-physical-layout meow-cheatsheet-physical-layout-iso)
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwertz)
@@ -77,11 +102,11 @@
           (?b . buffer)))
 
   (meow-leader-define-key
-   '("p" . project-command-map)
+   '("p" . projectile-command-map)
    '("w" . ace-window)
    '("e" . eglot)
    '("o" . org-roam-command-map)
-   '("k" . eldoc-box-help-at-point)
+   '("k" . eldoc-doc-buffer)
    '("t" . toggle-term-vterm)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
@@ -121,6 +146,9 @@
     '("ß" . meow-replace)
     '("j" . meow-visit)
     '("J" . surround-keymap)
+
+    '("d" . my/scroll-down-half-page)
+    '("D" . my/scroll-up-half-page)
 
     ;; expansion
     '("G" . meow-prev-expand)

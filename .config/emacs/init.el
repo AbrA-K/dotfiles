@@ -5,35 +5,12 @@
 (load-file "~/.config/emacs/ocaml.el")
 (add-to-list 'load-path "~/.config/emacs/emacs-progmode")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ac-use-fuzzy nil)
- '(backup-directory-alist '(("." . "~/.local/share/emacs/backups")))
- '(compilation-context-lines 2)
- '(compilation-error-screen-columns nil)
- '(compilation-scroll-output t)
- '(compilation-search-path '(nil "src"))
- '(custom-safe-themes
-   '("00d7122017db83578ef6fba39c131efdcb59910f0fac0defbe726da8072a0729" "71b688e7ef7c844512fa7c4de7e99e623de99a2a8b3ac3df4d02f2cd2c3215e7" "48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710" "87b82caf3ade09282779733fb6de999d683caf4a67a1abbee8b8c8018a8d9a6b" "e14884c30d875c64f6a9cdd68fe87ef94385550cab4890182197b95d53a7cf40" "2b20b4633721cc23869499012a69894293d49e147feeb833663fdc968f240873" default))
- '(electric-indent-mode nil)
- '(indent-tabs-mode nil)
- '(line-move-visual t)
- '(next-error-highlight t)
- '(next-error-highlight-no-select t)
- '(next-line-add-newlines nil)
- '(package-selected-packages
-   '(otpp xhair vline hl-line+ v-term libvterm vterm toggle-term magit f macsql-sqlite emacsql-sqlite org-roam surround rainbow-delimiters tuareg-mode tuareg eglot-booster ocp-indent centaur-tabs simple-modeline eldoc-box lsp-ui ob-rust haskell-mode haskell-snippets nushell-ts-mode nushell-mode ace-window framemove projectile yasnippet nerd-icons-corfu orderless adwaita-dark-theme solaire-mode solaire neotree org-modern org-fragtog meson-mode vala-mode sly scheme-complete markdown-mode lsp-scheme vertico marginalia marginalia-mode vertigo olivetti spacious-padding god-mode all-the-icons doom-themes rust-mode ef-themes meow-tree-sitter))
- '(package-vc-selected-packages
-   '((eglot-booster :vc-backend Git :url "https://github.com/jdtsmith/eglot-booster")))
- '(require-final-newline t)
- '(sentence-end-double-space nil)
- '(show-paren-mode t)
- '(show-trailing-whitespace t)
- '(visible-bell t)
- '(warning-suppress-log-types '((comp))))
+(load-file "~/.config/emacs/sensible-defaults.el")
+(require 'sensible-defaults)
+(sensible-defaults/use-all-settings)
+
+(setq custom-file "~/.config/emacs/custom.el")
+(load custom-file)
 
 (defun disable-all-themes ()
   "disable all active themes."
@@ -45,7 +22,10 @@
 
 ;; (load-theme 'doom-monokai-classic)
 (use-package ef-themes)
-(load-theme 'adwaita)
+(use-package gruber-darker-theme)
+;;(load-theme 'adwaita)
+(load-theme 'ef-cyprus)
+;;(load-theme 'gruber-darker)
 
 ;; smoothscroll
 (pixel-scroll-precision-mode)
@@ -113,6 +93,12 @@
  'treesit-language-source-alist
    '(ocaml-interface "https://github.com/tree-sitter/tree-sitter-ocaml" "master" "grammars/interface/src"))
 
+(use-package rust-mode)
+(use-package rust-ts-mode)
+(use-package exec-path-from-shell)
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 (setq major-mode-remap-alist
       '((rust-mode . rust-ts-mode)))
 
@@ -198,3 +184,10 @@
   :config
     (setq toggle-term-size 40)
     (setq toggle-term-switch-upon-toggle t))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-vc-selected-packages
+   '((eglot-booster :vc-backend Git :url "https://github.com/jdtsmith/eglot-booster"))))

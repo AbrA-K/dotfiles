@@ -1,3 +1,8 @@
+# colorscheme
+# TODO: change this to your own (and adjust treesitter config)
+colorscheme red-phoenix
+
+
 # plugin config
 evaluate-commands %sh{
     plugins="$kak_config/plugins"
@@ -29,7 +34,7 @@ map -docstring "find files" global user f ':popup --title open --kak-script %{ed
 map -docstring "lsp hover" global user h ':lsp-hover<ret>'
 
 # tree sitter
-eval %sh{ kak-tree-sitter -dks --with-highlighting --init $kak_session }
+#eval %sh{ kak-tree-sitter -dks --init $kak_session }
 
 # smarttab
 plug "andreyorst/smarttab.kak" defer smarttab %{
@@ -71,9 +76,7 @@ define-command -docstring "save and quit" x "write-all; quit"
 # delete word with c-w in insert mode
 map global insert <c-w> <esc>bdi
 
-# colorscheme
-# TODO: change this to your own
-colorscheme night-owl
+map global normal <c-semicolon> :comment-line<ret>
 
 # cat owo
 set-option -add global ui_options terminal_assistant=cat
