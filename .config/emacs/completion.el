@@ -77,6 +77,10 @@
   (setq read-extended-command-predicate #'command-completion-default-include-p))
 
 (use-package eglot)
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-ignored-server-capabilities :inlayHintProvider))
+
+(toggle-truncate-lines t)
 
 ;; better minibuffer compleation
 (use-package vertico)
@@ -92,7 +96,6 @@
 
 ;; zig mode
 (use-package zig-mode)
-(use-package zig-ts-mode)
 
 ;; ocaml
 (use-package ocp-indent)

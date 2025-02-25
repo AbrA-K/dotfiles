@@ -76,3 +76,8 @@
 (org-roam-db-autosync-mode)
 
 ;; no long filenamess
+(setq org-roam-capture-templates
+      '(("d" "default" plain "%?"
+         :if-new (file+head "${slug}.org"
+                            "#+title: ${title}\n")
+         :unnarrowed t)))
