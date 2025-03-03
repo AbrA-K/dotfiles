@@ -79,6 +79,21 @@
 
 (global-set-key (kbd "C-c n") 'org-roam-command-map)
 
+(use-package harpoon)
+(global-set-key (kbd "C-c h f") 'harpoon-toggle-file)
+(global-set-key (kbd "C-c h h") 'harpoon-toggle-quick-menu)
+(global-set-key (kbd "C-c h c") 'harpoon-clear)
+(global-set-key (kbd "M-1") 'harpoon-go-to-1)
+(global-set-key (kbd "M-2") 'harpoon-go-to-2)
+(global-set-key (kbd "M-3") 'harpoon-go-to-3)
+(global-set-key (kbd "M-4") 'harpoon-go-to-4)
+(global-set-key (kbd "M-5") 'harpoon-go-to-5)
+(global-set-key (kbd "M-6") 'harpoon-go-to-6)
+(global-set-key (kbd "M-7") 'harpoon-go-to-7)
+(global-set-key (kbd "M-8") 'harpoon-go-to-8)
+(global-set-key (kbd "M-9") 'harpoon-go-to-9)
+
+
 ;; actual meow config
 (setq aw-dispatch-always t)
 
@@ -109,6 +124,7 @@
    '("k" . eldoc-doc-buffer)
    '("t" . toggle-term-vterm)
    '("G" . magit)
+   '("h" . harpoon-quick-menu-hydra)
    '("f" . flymake-show-project-diagnostics)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)

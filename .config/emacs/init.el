@@ -183,8 +183,8 @@
 (define-key eglot-mode-map (kbd "C-c a") 'eglot-code-actions)
 (define-key eglot-mode-map (kbd "C-c d") 'flymake-show-project-diagnostics)
 (define-key eglot-mode-map (kbd "<f6>") 'xref-find-definitions)
+(setq eldoc-echo-area-use-multiline-p nil)
 
-;; Performance zone
 
 ;; Set it to big number(100mb) like most of the popular starter kits like Spacemacs/Doom/Prelude, etc do:
 (setq gc-cons-threshold 200000000)
