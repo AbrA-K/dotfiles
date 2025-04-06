@@ -25,7 +25,7 @@
 (use-package gruber-darker-theme)
 ;;(load-theme 'adwaita)
 (load-theme 'ef-cyprus)
-;;(load-theme 'gruber-darker)
+;; (load-theme 'gruber-darker)
 
 ;; smoothscroll
 (pixel-scroll-precision-mode)
@@ -61,7 +61,6 @@
 
 ;; line numbers
 (add-hook 'prog-mode-hook (lambda ()
-                           (setq display-line-numbers-type 'relative)
                            (display-line-numbers-mode)))
 
 ;; treesitter
@@ -103,6 +102,7 @@
       '((rust-mode . rust-ts-mode)))
 
 (use-package sly)
+(setq org-babel-lisp-eval-fn 'sly-eval)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq default-frame-alist '((undecorated . t)))
 

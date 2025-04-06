@@ -36,7 +36,7 @@
   (org-mode . org-fragtog-mode)
   :custom
   (org-format-latex-options
-        (plist-put org-format-latex-options :scale 3)
+        (plist-put org-format-latex-options :scale 1.2)
         (plist-put org-format-latex-options :foreground 'auto)
         (plist-put org-format-latex-options :background 'auto)))
 
@@ -59,6 +59,7 @@
                               ("󰉱" . "󰉰")))
 ;; Increase line spacing
 (setq-default line-spacing 3)
+(setq truncate-lines t)
 
 (custom-set-faces
  '(variable-pitch-mode ((t (:family "Arimo Nerd Font")))))
@@ -67,7 +68,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
-(setq org-babel-lisp-eval-fn #'sly-eval)
+;; (setq org-babel-lisp-eval-fn #'sly-eval)
 
 
 ;; org-roam
