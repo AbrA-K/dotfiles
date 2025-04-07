@@ -90,7 +90,7 @@
 
 ;; parinfer and it's fixes
 (use-package parinfer-rust-mode
-  :hook emacs-lisp-mode)
+  :hook emacs-lisp-mode lisp-mode)
 (setq parinfer-rust-disable-troublesome-modes t)
 (setq parinfer-rust-check-before-enable 'defer)
 
