@@ -82,3 +82,8 @@
          :if-new (file+head "${slug}.org"
                             "#+title: ${title}\n")
          :unnarrowed t)))
+
+(setq org-directory "~/SimsalA-org")
+(setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+
+(use-package auctex)

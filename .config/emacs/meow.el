@@ -124,6 +124,7 @@
    '("k" . eldoc-doc-buffer)
    '("t" . toggle-term-vterm)
    '("G" . magit)
+   '("a" . org-agenda)
    '("h" . harpoon-quick-menu-hydra)
    '("f" . flymake-show-project-diagnostics)
    ;; Use SPC (0-9) for digit arguments.
