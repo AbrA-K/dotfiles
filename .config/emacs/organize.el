@@ -1,11 +1,13 @@
-(add-hook 'org-mode-hook #'valign-mode)
-;; Load and configure org-mode
+(use-package all-the-icons)
 (use-package org
   :ensure t
   :config
   ;; Ensure org-mode is loaded before setting org-format-latex-options
   (with-eval-after-load 'org
     (setq org-format-latex-options (plist-put org-format-latex-options :scale 3.0))))
+
+(use-package valign)
+(add-hook 'org-mode-hook #'valign-mode)
 
 ;; olivetti
 (use-package olivetti
@@ -48,7 +50,8 @@
   :custom
   (org-modern-indent nil)
   (org-modern-keyword nil)
-  (org-modern-checkbox nil))
+  (org-modern-checkbox nil)
+  (org-modern-table-horizontal 1.0))
 
 (setq org-modern-replace-stars "󰉫󰉬󰉭󰉮󰉯")
 (setq org-modern-fold-stars '(("󰉱" . "󰉫")
@@ -61,19 +64,16 @@
 (setq-default line-spacing 3)
 (setq truncate-lines t)
 
-(custom-set-faces
- '(variable-pitch-mode ((t (:family "Arimo Nerd Font")))))
-
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
-;; (setq org-babel-lisp-eval-fn #'sly-eval)
 
 
 ;; org-roam
 (use-package org-roam)
 (setq org-roam-directory (file-truename "~/SimsalA-org"))
+(setq org-agenda-diary-file (file-truename "~/SimsalA-org/diary.org"))
 (org-roam-db-autosync-mode)
 
 ;; no long filenamess
@@ -87,3 +87,11 @@
 (setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
 
 (use-package auctex)
+
+;; make drag and drop cooler
+(use-package org-download)
+(require 'org-download)
+
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+(setq org-download-image-dir (concat org-roam-directory "/image-download"))

@@ -1,29 +1,20 @@
 (use-package meow)
+(use-package good-scroll)
+(good-scroll-mode 1)
 
 ;; scroll half a page
 (defun my/scroll-down-half-page ()
   "scroll down half a page while keeping the cursor centered"
   (interactive)
-  (let ((ln (line-number-at-pos (point)))
-        (lmax (line-number-at-pos (point-max))))
-    (cond ((= ln 1) (move-to-window-line nil))
-      ((= ln lmax) (recenter (window-end)))
-      (t (progn
-           (move-to-window-line -1)
-           (recenter))))))
+  (dotimes (_ 7) (good-scroll-down)))
 
 (defun my/scroll-up-half-page ()
   "scroll up half a page while keeping the cursor centered"
   (interactive)
-  (let ((ln (line-number-at-pos (point)))
-        (lmax (line-number-at-pos (point-max))))
-    (cond ((= ln 1) nil)
-      ((= ln lmax) (move-to-window-line nil))
-      (t (progn
-           (move-to-window-line 0)
-           (recenter))))))
+  (dotimes (_ 7) (good-scroll-up)))
 
 ;; better window/tab navigation
+(use-package transpose-frame)
 (use-package ace-window)
 (defvar aw-dispatch-alist
   '((?x aw-delete-window "Delete Window")
@@ -39,6 +30,7 @@
     (?o delete-other-windows "Delete Other Windows")
     (?? aw-show-dispatch-help))
   "List of actions for `aw-dispatch-default'.")
+
 (global-set-key (kbd "C-<left>")  'windmove-left)
 (global-set-key (kbd "C-<right>") 'windmove-right)
 (global-set-key (kbd "C-<up>")    'windmove-up)
@@ -54,11 +46,6 @@
 (use-package projectile
   :ensure t)
 (projectile-mode)
-;; (define-prefix-command 'project-command-map)
-;; (define-key project-command-map (kbd "p") #'project-switch-project)
-;; (define-key project-command-map (kbd "f") #'project-find-file)
-;; (define-key project-command-map (kbd "r") #'project-find-regexp)
-;; (define-key project-command-map (kbd "c") #'project-compile)
 
 ;; add/remove parenthesies (how 2 spell?)
 (use-package surround)
@@ -77,12 +64,7 @@
 (define-key org-roam-command-map (kbd "c") #'org-roam-capture)
 (define-key org-roam-command-map (kbd "b") #'org-roam-switch-to-buffer)
 
-(global-set-key (kbd "C-c n") 'org-roam-command-map)
-
 (use-package harpoon)
-(global-set-key (kbd "C-c h f") 'harpoon-toggle-file)
-(global-set-key (kbd "C-c h h") 'harpoon-toggle-quick-menu)
-(global-set-key (kbd "C-c h c") 'harpoon-clear)
 (global-set-key (kbd "M-1") 'harpoon-go-to-1)
 (global-set-key (kbd "M-2") 'harpoon-go-to-2)
 (global-set-key (kbd "M-3") 'harpoon-go-to-3)
@@ -125,7 +107,7 @@
    '("t" . toggle-term-vterm)
    '("G" . magit)
    '("a" . org-agenda)
-   '("h" . harpoon-quick-menu-hydra)
+   '("H" . harpoon-quick-menu-hydra)
    '("f" . flymake-show-project-diagnostics)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
@@ -166,14 +148,15 @@
     '("j" . meow-visit)
     '("J" . surround-keymap)
 
-    '("d" . my/scroll-down-half-page)
-    '("D" . my/scroll-up-half-page)
+    '("d" . my/scroll-up-half-page)
+    '("D" . my/scroll-down-half-page)
 
     ;; expansion
     '("G" . meow-prev-expand)
     '("R" . meow-next-expand)
     '("N" . meow-left-expand)
     '("T" . meow-right-expand)
+    '(":" . eval-expression)
 
     '("h" . meow-back-word)
     '("H" . meow-back-symbol)

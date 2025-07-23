@@ -12,7 +12,3 @@
 (require 'use-package)
 ;; Ensure use-package is always used
 (setq use-package-always-ensure t)
-
-(use-package valign)
-
-(use-package all-the-icons)
