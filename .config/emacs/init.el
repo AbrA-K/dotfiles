@@ -19,6 +19,7 @@
 (setq initial-scratch-message nil)
 (setq next-line-add-newlines t)
 (scroll-bar-mode -1)
+(setq use-dialog-box nil)
 
 
 ;; change emacs autosaves to something less annoying
