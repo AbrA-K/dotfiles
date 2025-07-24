@@ -2,7 +2,6 @@
 (load-file "~/.config/emacs/organize.el")
 (load-file "~/.config/emacs/completion.el")
 (load-file "~/.config/emacs/meow.el")
-(load-file "~/.config/emacs/ocaml.el")
 (add-to-list 'load-path "~/.config/emacs/emacs-progmode")
 
 ;; sensible defaults
@@ -62,29 +61,9 @@
 (unless (package-installed-p 'lambda-line)
   (package-vc-install "https://github.com/Lambda-Emacs/lambda-line"))
 
-(use-package lambda-line
-  :custom
-  (lambda-line-position 'bottom)
-  (lambda-line-abbrev t)
-  (lambda-line-hspace " ")
-  (lambda-line-prefix t)
-  (lambda-line-prefix-padding nil)
-  (lambda-line-status-invert nil)
-  (lambda-line-display-group-start "[")
-  (lambda-line-display-group-end "]")
-  (lambda-line-gui-ro-symbol  " 󰙗")
-  (lambda-line-gui-mod-symbol " 󰏩")
-  (lambda-line-gui-rw-symbol  " 󰏩")
-  (lambda-line-vc-symbol "  ")
-  (lambda-line-space-top +.3)  ;; padding on top and bottom of line
-  (lambda-line-space-bottom -.3)
+(use-package doom-modeline
   :config
-  ;; activate lambda-line
-  (lambda-line-mode)
-  ;; set divider line in footer
-  (when (eq lambda-line-position 'top)
-    (setq-default mode-line-format (list "%_"))
-    (setq mode-line-format (list "%_"))))
+  :init (doom-modeline-mode 1))
 
 ;; better font
 (set-frame-font "BlexMonoNerd Font 13" nil t)
