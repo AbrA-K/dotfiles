@@ -48,7 +48,7 @@
   (disable-all-themes))
 
 (use-package ef-themes)
-(load-theme 'ef-light)
+(load-theme 'ef-cyprus)
 
 ;; smoothscroll
 (pixel-scroll-precision-mode)

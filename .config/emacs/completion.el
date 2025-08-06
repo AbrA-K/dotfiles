@@ -85,6 +85,7 @@
 
 ;; mode
 (use-package rust-mode)
+(use-package wgsl-mode)
 (use-package exec-path-from-shell)
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
 (when (memq window-system '(mac ns x))
