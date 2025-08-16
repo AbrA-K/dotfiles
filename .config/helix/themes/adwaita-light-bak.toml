@@ -80,7 +80,7 @@
 "ui.window" = "split_and_borders"
 "ui.help" = { bg = "light_3" }
 "ui.text" = "dark_4"
-"ui.virtual" = "light_1"
+"ui.virtual" = "dark_1"
 "ui.virtual.ruler" = { bg = "light_5"}
 "ui.menu" = { fg = "dark_4", bg = "light_3" }
 "ui.menu.selected" = { fg = "dark_4", bg = "blue_1" }

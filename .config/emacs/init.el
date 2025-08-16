@@ -48,7 +48,9 @@
   (disable-all-themes))
 
 (use-package ef-themes)
-(load-theme 'ef-cyprus)
+(load-theme 'ef-light)
+(set-frame-parameter nil 'alpha-background 0.5)
+(set-frame-parameter nil 'undecorated t)
 
 ;; smoothscroll
 (pixel-scroll-precision-mode)
@@ -61,10 +63,27 @@
 ;; nice bufferline
 (unless (package-installed-p 'lambda-line)
   (package-vc-install "https://github.com/Lambda-Emacs/lambda-line"))
+(use-package lambda-line
+  :custom
+  (lambda-line-position 'bottom)
+  (lambda-line-abbrev t)
+  (lambda-line-hspace " ")
+  (lambda-line-prefix t)
+  (lambda-line-prefix-padding nil)
+  (lambda-line-status-invert nil)
+  (lambda-line-display-group-start "[")
+  (lambda-line-display-group-end "]")
+  (lambda-line-gui-ro-symbol  " 󰙗")
+  (lambda-line-gui-mod-symbol " 󰏩")
+  (lambda-line-gui-rw-symbol  " 󰏩")
+  (lambda-line-vc-symbol "  ")
+  (lambda-line-space-top +.3)  ;; padding on top and bottom of line
+  (lambda-line-space-bottom -.3))
+(lambda-line-mode)
 
-(use-package doom-modeline
-  :config
-  :init (doom-modeline-mode 1))
+;; (use-package doom-modeline
+;;   :config
+;;   :init (doom-modeline-mode 1))
 
 ;; better font
 (set-frame-font "BlexMonoNerd Font 13" nil t)
@@ -106,3 +125,12 @@
     (setq toggle-term-size 40)
     (setq toggle-term-switch-upon-toggle t))
 (custom-set-variables)
+
+;; set special buffers here
+(setq special-display-buffer-names
+      '("*compilation*"))
+
+(setq special-display-function
+      (lambda (buffer &optional args)
+        (tab-switch (buffer-name buffer))
+        (switch-to-buffer buffer)))
