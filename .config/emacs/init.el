@@ -48,9 +48,7 @@
   (disable-all-themes))
 
 (use-package ef-themes)
-(load-theme 'ef-light)
-(set-frame-parameter nil 'alpha-background 0.5)
-(set-frame-parameter nil 'undecorated t)
+(load-theme 'ef-cyprus)
 
 ;; smoothscroll
 (pixel-scroll-precision-mode)
@@ -86,7 +84,7 @@
 ;;   :init (doom-modeline-mode 1))
 
 ;; better font
-(set-frame-font "BlexMonoNerd Font 13" nil t)
+(set-frame-font "AdwaitaMonoNerd Font 13" nil t)
 (set-face-attribute 'mode-line nil :weight 'bold)
 (setq flymake-mode-line-format '(" " flymake-mode-line-exception flymake-mode-line-counters))
 ;; (set-face-attribute 'lambda-line-display-group-end nil :weight 'regular)
