@@ -65,6 +65,8 @@
 (setq truncate-lines t)
 
 ;; lilypond
+(unless (package-installed-p 'ob-lilypond)
+  (package-vc-install "https://github.com/mjago/ob-lilypond"))
 (setq org-babel-lilypond-gen-png t)
 
 ;; active Babel languages

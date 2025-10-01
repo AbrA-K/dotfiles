@@ -17,7 +17,8 @@
  (packages (specifications->packages (list
                                       "rust"
                                       "rust:cargo"
-                                      "rust-analyzer")))
+                                      "rust-analyzer"
+                                      "lilypond")))
 
  (services
   (append (list
