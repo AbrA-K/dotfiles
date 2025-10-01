@@ -64,10 +64,14 @@
 (setq-default line-spacing 3)
 (setq truncate-lines t)
 
+;; lilypond
+(setq org-babel-lilypond-gen-png t)
+
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((lisp . t)))
+ '((lisp . t)
+   (lilypond . t)))
 
 
 ;; org-roam
