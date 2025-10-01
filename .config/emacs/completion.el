@@ -93,7 +93,7 @@
 
 ;; debug
 (require 'dap-gdb-lldb)
-(dap-gdb-lldb-setup)
+;; (dap-gdb-lldb-setup)
 (dap-register-debug-template "Rust::GDB Run Configuration"
                              (list :type "gdb"
                                    :request "launch"

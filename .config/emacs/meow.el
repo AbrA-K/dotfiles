@@ -104,7 +104,7 @@
    '("e" . eglot)
    '("o" . org-roam-command-map)
    '("k" . eldoc-doc-buffer)
-   '("t" . toggle-term-vterm)
+   '("t" . toggle-term-shell)
    '("G" . magit)
    '("a" . org-agenda)
    '("H" . harpoon-quick-menu-hydra)

@@ -1,0 +1,23 @@
+fuzzy-match = true
+
+font = "FantasqueSansM Nerd Font"
+font-size = 30
+
+background-color = #FFFCF0
+
+outline-width = 4
+outline-color = #879A39
+
+border-width = 4
+border-color = #66800B
+
+text-color = #6F6E69
+
+prompt-text = "  "
+prompt-color = #66800B
+
+input-color = #66800B
+
+selection-color = #100F0F
+selection-background = #c0df6f
+selection-background-padding = 0, 10, 0, 10

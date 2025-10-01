@@ -56,7 +56,8 @@
 
 ;; line numbers
 (add-hook 'prog-mode-hook (lambda ()
-                           (display-line-numbers-mode)))
+                            (scroll-bar-mode -1)
+                            (display-line-numbers-mode)))
 
 ;; nice bufferline
 (unless (package-installed-p 'lambda-line)
@@ -84,7 +85,8 @@
 ;;   :init (doom-modeline-mode 1))
 
 ;; better font
-(set-frame-font "AdwaitaMonoNerd Font 13" nil t)
+(set-frame-font "FantasqueSansM Nerd Font 14" nil t)
+(setq default-frame-alist '((font . "FantasqueSansM Nerd Font 14")))
 (set-face-attribute 'mode-line nil :weight 'bold)
 (setq flymake-mode-line-format '(" " flymake-mode-line-exception flymake-mode-line-counters))
 ;; (set-face-attribute 'lambda-line-display-group-end nil :weight 'regular)
