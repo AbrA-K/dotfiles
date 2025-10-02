@@ -69,7 +69,8 @@
  ;; services, run 'guix system search KEYWORD' in a terminal.
  (services
   (append (list (service gnome-desktop-service-type)
-
+                (service bluetooth-service-type (bluetooth-configuration
+                                                 (auto-enable? #t)))
                 (service openssh-service-type)
                 (service cups-service-type)
                 (set-xorg-configuration
