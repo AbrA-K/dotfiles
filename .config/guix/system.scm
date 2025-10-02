@@ -48,6 +48,7 @@
                           "mako"
                           "tofi"
                           "swayidle"
+                          "unzip"
                           "fzf"
                           "ripgrep"
                           "fastfetch"

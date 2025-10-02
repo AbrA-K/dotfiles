@@ -11,6 +11,7 @@
              (gnu home services desktop)
              (gnu home services sound)
              (gnu home services shepherd)
+             (gnu home services syncthing)
              (gnu home services shells))
 
 (home-environment
@@ -24,6 +25,7 @@
   (append (list
            (service home-dbus-service-type)
            (service home-pipewire-service-type)
+           (service home-syncthing-service-type)
            (service home-bash-service-type
                     (home-bash-configuration
                      (aliases '(("grep" . "grep --color=auto")
