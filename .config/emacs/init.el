@@ -85,8 +85,8 @@
 ;;   :init (doom-modeline-mode 1))
 
 ;; better font
-(set-frame-font "FantasqueSansM Nerd Font 14" nil t)
-(setq default-frame-alist '((font . "FantasqueSansM Nerd Font 14")))
+(set-frame-font "BlexMonoNerd Font 12" nil t)
+(setq default-frame-alist '((font . "BlexMonoNerd Font 12")))
 (set-face-attribute 'mode-line nil :weight 'bold)
 (setq flymake-mode-line-format '(" " flymake-mode-line-exception flymake-mode-line-counters))
 ;; (set-face-attribute 'lambda-line-display-group-end nil :weight 'regular)
