@@ -1,0 +1,6 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+[character] # Der name des Moduls das wir ändern ist 'character'
+format = '[░▒▓](yellow)[  ](bg:yellow fg:#ffffff)[ ](yellow)' # Der 'success_symbol' Teil wird auf '➜' mit der farbe 'bold green' gesetzt
