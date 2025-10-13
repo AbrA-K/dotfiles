@@ -10,6 +10,7 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu)
+             (gnu packages wm)
              (nongnu packages linux)
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg sound)
@@ -36,8 +37,11 @@
  ;; under their own account: use 'guix search KEYWORD' to search
  ;; for packages and 'guix install PACKAGE' to install a package.
  (packages (append (specifications->packages
-                    (list "river"
-                          "sandbar"
+                    (list "niri"
+                          "wireplumber"
+                          "xwayland-satellite"
+                          "swaynotificationcenter"
+                          "waybar"
                           "emacs"
                           "librewolf"
                           "starship"
@@ -47,7 +51,9 @@
                           "swww"
                           "mako"
                           "tofi"
+                          "fuzzel"
                           "swayidle"
+                          "swaylock-effects"
                           "unzip"
                           "fzf"
                           "ripgrep"
@@ -74,6 +80,10 @@
                                                  (auto-enable? #t)))
                 (service openssh-service-type)
                 (service cups-service-type)
+                (service screen-locker-service-type
+                         (screen-locker-configuration
+                          (name "swaylock")
+                          (program swaylock-effects)))
                 (set-xorg-configuration
                  (xorg-configuration (keyboard-layout keyboard-layout))))
 
@@ -85,21 +95,20 @@
               (bootloader grub-efi-bootloader)
               (targets (list "/boot/efi"))
               (keyboard-layout keyboard-layout)))
- (swap-devices (list (swap-space
-                      (target (uuid
-                               "12fff4a3-7295-43b7-9efb-2d75d93fc351")))))
 
- ;; The list of file systems that get "mounted".  The unique
- ;; file system identifiers there ("UUIDs") can be obtained
- ;; by running 'blkid' in a terminal.
+ (mapped-devices (list (mapped-device
+                          (source (uuid
+                                   "55b9123e-818f-4a22-b852-43b80f81d1a7"))
+                          (target "cryptroot")
+                          (type luks-device-mapping))))
+
  (file-systems (cons* (file-system
-                       (mount-point "/")
-                       (device (uuid
-                                "4529e3de-ddc5-4a1f-84da-e7c50439b95f"
-                                'ext4))
-                       (type "ext4"))
+                         (mount-point "/boot/efi")
+                         (device (uuid "30CF-1F6D"
+                                       'fat32))
+                         (type "vfat"))
                       (file-system
-                       (mount-point "/boot/efi")
-                       (device (uuid "F1F2-BE63"
-                                     'fat32))
-                       (type "vfat")) %base-file-systems)))
+                        (mount-point "/")
+                        (device "/dev/mapper/cryptroot")
+                        (type "ext4")
+                        (dependencies mapped-devices)) %base-file-systems)))
