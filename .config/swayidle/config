@@ -1,0 +1,3 @@
+before-sleep "swaylock"
+timeout 300 "brightnessctl -s && brightnessctl set 20%-" resume "brightnessctl -r"
+timeout 330 "loginctl suspend"
