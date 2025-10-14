@@ -1,0 +1,140 @@
+* {
+    all: unset;
+    font-family: FantasqueSansM Nerd Font;
+    font-size: 18px;
+    color: #100F0F;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    color: #100F0F;
+    background: #FFFCF0;
+    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+button {
+    color: #66800B;
+}
+
+button.focused {
+    color: #879A39;
+}
+
+/* the rest are the widgets or the right */
+/* pretty ugly, but idc */
+
+#window {
+    border-radius: 100px;
+    background: #e0e7e5;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#idle_inhibitor {
+    border-radius: 100px;
+    background: #c0df6f;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 8px;
+}
+
+#wireplumber {
+    border-radius: 100px;
+    background: #e6e4bf;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#network {
+    border-radius: 100px;
+    background: #c0df6f;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#cpu {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background: #e6e4bf;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 0px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#memory {
+    /* border-radius: 100px; */
+    background: #e6e4bf;
+    margin: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#temperature {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: #e6e4bf;
+    margin: 5px;
+    margin-left: 0px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#backlight {
+    border-radius: 100px;
+    background: #c0df6f;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 8px;
+}
+
+#battery {
+    border-radius: 100px;
+    background: #e6e4bf;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 8px;
+}
+
+#tray {
+    border-radius: 100px;
+    background: #c1f2d1;
+    margin: 5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 8px;
+}
