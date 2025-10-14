@@ -30,6 +30,10 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+cursor {
+    xcursor-theme "Future-cursors"
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -95,7 +99,7 @@ layout {
     border {
         width 4
         active-color "#D0A215"
-        inactive-color "#66800B"
+        inactive-color "#FFFCF0"
         urgent-color "#D14D41"
     }
 
@@ -114,6 +118,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "swaync"
 spawn-at-startup "swayidle"
 spawn-at-startup "emacs --daemon"
+spawn-at-startup "polkit-gnome"
 
 hotkey-overlay {
     skip-at-startup
