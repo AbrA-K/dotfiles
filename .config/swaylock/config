@@ -1,0 +1,18 @@
+clock
+indicator
+screenshots
+font=FantasqueSansM Nerd Font
+indicator-radius=80
+effect-blur=10x4
+fade-in=1.0
+text-color=100F0F
+
+inside-color=FFFCF0
+inside-clear-color=FFFCF0
+inside-ver-color=FFFCF0
+
+key-hl-color=e6e4bf
+separator-color=e6e4bf
+
+line-uses-ring
+ring-color=66800B
