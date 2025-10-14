@@ -24,13 +24,12 @@
  (keyboard-layout (keyboard-layout "de" "neo"))
  (host-name "KadaZen")
 
- ;; The list of user accounts ('root' is implicit).
  (users (cons* (user-account
                 (name "abra")
                 (comment "abra-k")
                 (group "users")
                 (home-directory "/home/abra")
-                (supplementary-groups '("wheel" "netdev" "audio" "video")))
+                (supplementary-groups '("wheel" "netdev" "audio" "video" "input")))
                %base-user-accounts))
 
  ;; Packages installed system-wide.  Users can also install packages
@@ -42,7 +41,7 @@
                           "xwayland-satellite"
                           "swaynotificationcenter"
                           "waybar"
-                          "emacs"
+                          "emacs-pgtk"
                           "librewolf"
                           "starship"
                           "stow"
@@ -64,6 +63,8 @@
                           "font-google-noto-sans-cjk"
                           "font-google-noto-emoji"
                           "gnome-software"
+                          "glib:bin"
+                          "cava"
                           "flatpak"
                           "zathura"
                           "zathura-pdf-poppler"
