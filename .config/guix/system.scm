@@ -97,19 +97,22 @@
               (targets (list "/boot/efi"))
               (keyboard-layout keyboard-layout)))
 
- (mapped-devices (list (mapped-device
+   (mapped-devices (list (mapped-device
                           (source (uuid
-                                   "55b9123e-818f-4a22-b852-43b80f81d1a7"))
+                                   "5c01d090-4c25-4b57-832a-a7be8b9bc976"))
                           (target "cryptroot")
                           (type luks-device-mapping))))
 
- (file-systems (cons* (file-system
+  ;; The list of file systems that get "mounted".  The unique
+  ;; file system identifiers there ("UUIDs") can be obtained
+  ;; by running 'blkid' in a terminal.
+  (file-systems (cons* (file-system
                          (mount-point "/boot/efi")
-                         (device (uuid "30CF-1F6D"
+                         (device (uuid "1A96-EF9C"
                                        'fat32))
                          (type "vfat"))
-                      (file-system
-                        (mount-point "/")
-                        (device "/dev/mapper/cryptroot")
-                        (type "ext4")
-                        (dependencies mapped-devices)) %base-file-systems)))
+                       (file-system
+                         (mount-point "/")
+                         (device "/dev/mapper/cryptroot")
+                         (type "ext4")
+                         (dependencies mapped-devices)) %base-file-systems)))
