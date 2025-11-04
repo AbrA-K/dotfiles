@@ -85,8 +85,8 @@
 ;;   :init (doom-modeline-mode 1))
 
 ;; better font
-(set-frame-font "BlexMonoNerd Font 12" nil t)
-(setq default-frame-alist '((font . "BlexMonoNerd Font 12")))
+(set-frame-font "FantasqueSansM Nerd Font 13" nil t)
+(setq default-frame-alist '((font . "FantasqueSansM Nerd Font 13")))
 (set-face-attribute 'mode-line nil :weight 'bold)
 (setq flymake-mode-line-format '(" " flymake-mode-line-exception flymake-mode-line-counters))
 ;; (set-face-attribute 'lambda-line-display-group-end nil :weight 'regular)
@@ -103,10 +103,6 @@
 (setq read-process-output-max (* 3 (* 1024 1024))) ;; 3mb
 (setq lsp-idle-delay 0.500)
 (custom-set-faces)
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
 
 
 (use-package magit)
