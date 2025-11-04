@@ -16,9 +16,7 @@
 
 (home-environment
  (packages (specifications->packages (list
-                                      "rust"
-                                      "rust:cargo"
-                                      "rust-analyzer"
+                                      "gnome-authenticator"
                                       "lilypond")))
 
  (services
