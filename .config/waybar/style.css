@@ -14,7 +14,12 @@
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 3px rgba(0.0, 0.0, 0.0, 0.5);
+}
+
+window#waybar {
 }
 
 button {
@@ -34,7 +39,6 @@ button.focused {
     margin: 5px;
     margin-left: 2.5px;
     margin-right: 2.5px;
-    padding: 2px;
     padding-left: 10px;
     padding-right: 10px;
 }
