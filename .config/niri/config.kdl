@@ -76,6 +76,9 @@ cursor {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     gaps 20
+    struts {
+        top -10 // because of the funny waybar box-shadow
+    }
     center-focused-column "never"
 
     preset-column-widths {
